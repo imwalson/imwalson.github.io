@@ -2,8 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" href="/css/pure-min.css" />
-<link rel="stylesheet" href="/css/styles.css" />
+<link rel="stylesheet" href="./css/pure-min.css" />
+<link rel="stylesheet" href="./css/styles.css" />
 <style>
 	body {
 		position: relative;
@@ -21,9 +21,9 @@
 </head>
 <body>
 <div id="a1"></div>
-<script src="/js/jquery.min.js"></script>
-<script src="/ckplayer/ckplayer.js" charset="utf-8"></script>
-<script src="/js/util.js"></script>
+<script src="./js/jquery.min.js"></script>
+<script src="./ckplayer/ckplayer.js" charset="utf-8"></script>
+<script src="./js/util.js"></script>
 <script type="text/javascript">
 	function play() {
 		var youtubeLink = parseURL(location.href).query.replace('?url=','') || '';
@@ -62,7 +62,7 @@
 					b:1
 				};
 				var params={bgcolor:'#FFF',allowFullScreen:true,allowScriptAccess:'always',wmode:'transparent'};
-				CKobject.embedSWF('/ckplayer/ckplayer.swf','a1','ckplayer_a1','800','600',flashvars,params);
+				CKobject.embedSWF('./ckplayer/ckplayer.swf','a1','ckplayer_a1','800','600',flashvars,params);
 			}else{
 				return false;
 			}
