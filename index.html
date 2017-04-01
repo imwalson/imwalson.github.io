@@ -37,6 +37,9 @@
 <script src="./js/util.js"></script>
 <script type="text/javascript">
 	function play() {
+		var screenWidth = $("body").width();
+		var screenHeight = $("body").height();
+		var videoHeight = (screenHeight > 0.75 * screenWidth)?0.75 * screenWidth:screenHeight;
 		var youtubeLink = parseURL(location.href).query.replace('?url=','') || '';
 		if(!youtubeLink){
 			alert('缺少参数');
@@ -51,11 +54,11 @@
 			console.log("从缓存中取地址： "+fileUrl);
 			var flashvars={
 				f: fileUrl,
-				c:0,
-				b:1
+				c: 0
 			};
-			var params={bgcolor:'#FFF',allowFullScreen:true,allowScriptAccess:'always',wmode:'transparent'};
-			CKobject.embedSWF('/ckplayer/ckplayer.swf','a1','ckplayer_a1','800','600',flashvars,params);
+			var video=[fileUrl + '->video/mp4'];
+			var params={bgcolor:'#FFF',allowFullScreen:true,allowScriptAccess:'always',wmode:'transparent',allowFullScreenInteractive:true};
+			CKobject.embed('/ckplayer/ckplayer.swf','a1','ckplayer_a1',screenWidth,videoHeight,false,flashvars,video,params);
 			return;
 		}
 
@@ -68,12 +71,12 @@
 				fileUrl = host + json.query.results.a[1].href;
 				storage.setItem(key,fileUrl);
 				var flashvars={
-					f: fileUrl,
-					c:0,
-					b:1
-				};
-				var params={bgcolor:'#FFF',allowFullScreen:true,allowScriptAccess:'always',wmode:'transparent'};
-				CKobject.embedSWF('./ckplayer/ckplayer.swf','a1','ckplayer_a1','800','600',flashvars,params);
+				f: fileUrl,
+				c: 0
+			};
+			var video=[fileUrl + '->video/mp4'];
+			var params={bgcolor:'#FFF',allowFullScreen:true,allowScriptAccess:'always',wmode:'transparent',allowFullScreenInteractive:true};
+			CKobject.embed('/ckplayer/ckplayer.swf','a1','ckplayer_a1',screenWidth,videoHeight,false,flashvars,video,params);
 			}else{
 				return false;
 			}
