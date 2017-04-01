@@ -54,7 +54,8 @@
 			console.log("从缓存中取地址： "+fileUrl);
 			var flashvars={
 				f: fileUrl,
-				c: 0
+				c: 0,
+				p: 1
 			};
 			var video=[fileUrl + '->video/mp4'];
 			var params={bgcolor:'#FFF',allowFullScreen:true,allowScriptAccess:'always',wmode:'transparent',allowFullScreenInteractive:true};
@@ -72,7 +73,8 @@
 				storage.setItem(key,fileUrl);
 				var flashvars={
 				f: fileUrl,
-				c: 0
+				c: 0,
+				p: 1
 			};
 			var video=[fileUrl + '->video/mp4'];
 			var params={bgcolor:'#FFF',allowFullScreen:true,allowScriptAccess:'always',wmode:'transparent',allowFullScreenInteractive:true};
